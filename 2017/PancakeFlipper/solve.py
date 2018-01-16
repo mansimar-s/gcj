@@ -6,13 +6,8 @@ def solve(s, fs):
     while True:
         try:
             beg = s.index("-")
-            """
-
-            Latest Change was adding the following if
-
-            """
-            #if beg > len(fs) - 1:
-                #return "IMPOSSIBLE"
+            if beg > len(s) - fs:
+                return "IMPOSSIBLE"
         except:
             return count
 
@@ -24,8 +19,8 @@ def solve(s, fs):
             else:
                 s[k] = "-"
             start = beg+1
-        print(s)
-        print(start)
+        #print(s)
+        #print(start)
         if start > len(s) - fs +1:
             if "-" in s:
                 return "IMPOSSIBLE"
@@ -33,11 +28,8 @@ def solve(s, fs):
                 return count
 
 
-
-
-
-with open("sample.txt","r") as fin:
-    with open("solved.txt","w") as fout:
+with open("A-large-practice.in","r") as fin:
+    with open("solved_large.txt","w") as fout:
         cases = int(fin.readline())
         case = 0
         for line in fin:
